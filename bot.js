@@ -41,6 +41,9 @@ var config = {
     databaseURL: "https://spark-pie-bot.firebaseio.com/",
     storageBucket: "gs://spark-pie-bot.appspot.com/",
 }
+firebase.initializeApp(config);
+var database = firebase.database()
+
 var controller = Botkit.sparkbot({
     // debug: true,
     // limit_to_domain: ['mycompany.com'],
