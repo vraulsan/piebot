@@ -34,9 +34,13 @@ if (!process.env.public_address) {
 }
 
 var Botkit = require('botkit');
-var debug = require('debug')('botkit:main');
-
-// Create the Botkit controller, which controls all instances of the bot.
+var firebase = require('firebase');
+var config = {
+    apiKey: 'AIzaSyDwd_Vl8ov8soR-XdOXKV40SJVhkx-4U8I',
+    authDomain: "spark-pie-bot.firebaseapp.com",
+    databaseURL: "https://spark-pie-bot.firebaseio.com/",
+    storageBucket: "gs://spark-pie-bot.appspot.com/",
+}
 var controller = Botkit.sparkbot({
     // debug: true,
     // limit_to_domain: ['mycompany.com'],
@@ -49,6 +53,8 @@ var controller = Botkit.sparkbot({
     studio_command_uri: process.env.studio_command_uri,
 });
 
+var debug = require('debug')('botkit:main');
+// Create the Botkit controller, which controls all instances of the bot.
 // Set up an Express-powered webserver to expose oauth and webhook endpoints
 var webserver = require(__dirname + '/components/express_webserver.js')(controller);
 

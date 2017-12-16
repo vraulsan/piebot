@@ -18,18 +18,19 @@
 
 */
 
-module.exports = function(controller) {
 
+module.exports = function(controller) {
+/*
     // listen for someone saying 'tasks' to the bot
     // reply with a list of current tasks loaded from the storage system
     // based on this user's id
     controller.hears(['tasks','todo'], 'direct_message,direct_mention', function(bot, message) {
-
         // load user from storage...
         controller.storage.users.get(message.user, function(err, user) {
-
+            console.log('HERE', err);
             // user object can contain arbitary keys. we will store tasks in .tasks
             if (!user || !user.tasks || user.tasks.length == 0) {
+                addTask(2, 'tester', 'Victor', false);
                 bot.reply(message, 'There are no tasks on your list. Say `add _task_` to add something.');
             } else {
 
@@ -47,7 +48,7 @@ module.exports = function(controller) {
 
     // listen for a user saying "add <something>", and then add it to the user's list
     // store the new list in the storage system
-    controller.hears(['add (.*)'],'direct_message,direct_mention', function(bot, message) {
+    controller.hears(['adder (.*)'],'direct_message,direct_mention', function(bot, message) {
 
         var newtask = message.match[1];
         controller.storage.users.get(message.user, function(err, user) {
@@ -112,7 +113,7 @@ module.exports = function(controller) {
         }
 
     });
-
+*/
     // simple function to generate the text of the task list so that
     // it can be used in various places
     function generateTaskList(user) {
