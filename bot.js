@@ -41,7 +41,10 @@ var config = {
     databaseURL: "https://spark-pie-bot.firebaseio.com/",
     storageBucket: "gs://spark-pie-bot.appspot.com/",
 }
-firebase.initializeApp(config);
+if (!firebase.apps.length) {
+    firebase.initializeApp(config);
+}
+
 var database = firebase.database()
 
 var controller = Botkit.sparkbot({
